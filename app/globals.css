@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@200;300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: MoonTime;
+	src: url('/MoonTime-Regular.otf') format('opentype');
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: rgba(198, 198, 198, 0.7);
+	border-radius: 10px;
+	border: none;
+}
+
+::-webkit-scrollbar-track {
+	background-color: transparent;
+}
+
+* {
+	user-select: none;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(198, 198, 198, 0.7);
+}
+
+body {
+	font-family: 'Bricolage Grotesque', sans-serif;
+	background-color: #121212;
+	color: rgb(230, 230, 230);
+	min-height: 100vh;
+	text-transform: lowercase;
+}
+
+.poem-title {
+	font-family: 'Space Mono', monospace;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	font-size: 0.7rem;
+}
+
+.poem-content {
+	font-family: 'Playfair Display', serif;
+	font-weight: 400;
+	text-transform: none;
+	line-height: 1.8;
+}
+
+.poem-content em {
+	font-style: italic;
+	font-weight: 600;
+}
+
+.poem-meta {
+	font-family: 'Space Mono', monospace;
+	font-size: 0.6rem;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.instagram-link {
+	transition: all 0.3s ease;
+	position: relative;
+	color: white;
+}
+
+.instagram-link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background-color: #ffffff;
+	transition: width 0.3s ease;
+}
+
+.instagram-link:hover::after,
+.instagram-link.active::after {
+	width: 100%;
+}
+
+.github-link {
+	transition: all 0.3s ease;
+	position: relative;
+	color: rgb(107 114 128);
+}
+
+.github-link::after {
+	content: '';
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 0;
+	height: 1px;
+	background-color: rgb(107 114 128);
+	transition: width 0.3s ease;
+}
+
+.github-link:hover::after {
+	width: 100%;
+}
+
+.github-link:hover {
+	color: rgb(156 163 175);
+}
+
+.masonry-grid {
+	column-count: 4;
+	column-gap: 1rem;
+}
+
+@media (max-width: 1200px) {
+	.masonry-grid {
+		column-count: 3;
+	}
+}
+
+@media (max-width: 768px) {
+	.masonry-grid {
+		column-count: 2;
+	}
+}
+
+@media (max-width: 480px) {
+	.masonry-grid {
+		column-count: 1;
+	}
+}
+
+.masonry-item {
+	break-inside: avoid;
+	margin-bottom: 1.2rem;
+	transition: all 0.3s ease;
+}
+
+.poem-card {
+	border-radius: 0.5rem;
+	overflow: hidden;
+	cursor: pointer;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.poem-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 50;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s ease;
+}
+
+.modal.active {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.modal-content {
+	width: 90%;
+	max-width: 800px;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+	background-color: transparent;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.masonry-item img {
+	animation: fadeIn 0.8s ease forwards;
+}
+
+#loader-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: #121212;
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.loading-progress {
+	width: 0%;
+	animation: loading 2s ease infinite;
+}
+
+@keyframes loading {
+	0% {
+		width: 0%;
+	}
+	50% {
+		width: 70%;
+	}
+	100% {
+		width: 100%;
+	}
+}
