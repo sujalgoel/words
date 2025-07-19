@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 		url: 'https://words.hecodesforme.com/',
 		images: [
 			{
-				url: 'https://words.hecodesforme.me/website.jpeg',
+				url: 'https://words.hecodesforme.com/website.jpeg',
 				width: 1200,
 				height: 630,
 				alt: 'words — @hecodesforme (Sujal)',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 		card: 'summary_large_image',
 		title: 'words — @hecodesforme (Sujal)',
 		description: 'my collection of thoughts',
-		images: ['https://words.hecodesforme.me/website.jpeg'],
+		images: ['https://words.hecodesforme.com/website.jpeg'],
 	},
 };
 
