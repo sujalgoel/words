@@ -52,6 +52,9 @@ body {
 	font-weight: 400;
 	text-transform: none;
 	line-height: 1.8;
+	text-align: justify;
+	hyphens: auto;
+	text-justify: inter-word;
 }
 
 .poem-content em {
